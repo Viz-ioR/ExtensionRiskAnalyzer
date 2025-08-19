@@ -2,24 +2,6 @@
 
 ## Files & What They Do
 
-- **manifest.json** — MV3 config. Declares the side panel entry (`app/index.html`), background service worker (`background/sw.js`), and host permissions for CRX downloads and OpenAI. No tab/active-page access.
-
-- **background/sw.js** — Service worker. Opens the side panel when the toolbar icon is clicked and proxies OpenAI requests using a baked test key (assignment/demo only). No current-tab URL checks.
-
-- **app/index.html** — Side panel UI shell. Contains the input (`#query`), button (`#analyzeBtn`), status (`#status`), and results (`#result`). Loads `vendor/jszip.min.js` and then `app/app.js`.
-
-- **app/app.js** — Main client logic. Validates input (32-char ID or Chrome Web Store detail URL), downloads the CRX, extracts `manifest.json` via JSZip, resolves the extension name (from `_locales` if needed), runs risk heuristics, optionally calls OpenAI via the background, and renders the score, risks, safeties, and technical evidence.
-
-- **app/analysis.js** — Pluggable heuristics module exporting `Analysis.analyzeRisk({ manifest, metadata })`. If present, it overrides the built-in fallback logic in `app.js`.
-
-- **vendor/jszip.min.js** — Local minified JSZip library used to read the ZIP payload inside CRX files (required by MV3 since remote scripts aren’t allowed).
-
-
-
-# Extension Risk Analyzer
-
-## Files & What They Do
-
 - **manifest.json** — MV3 config. Declares the side panel (`app/index.html`), background service worker (`background/sw.js`), and host permissions for CRX downloads + OpenAI. No tab/active-page access.
 - **background/sw.js** — Service worker. Opens the side panel when the toolbar icon is clicked and proxies OpenAI requests using a baked api key.
 - **app/index.html** — Side panel UI shell. Contains the input (`#query`), button (`#analyzeBtn`), status (`#status`), and results (`#result`). Loads `vendor/jszip.min.js` then `app/app.js`.
