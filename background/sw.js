@@ -1,6 +1,6 @@
 // Background service worker for the Extension Risk Analyzer
 
-const OPENAI_API_KEY = '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'; // e.g., 'sk-test-...'
+const OPENAI_API_KEY = 'API_KEY'; 
 
 async function openPanel(windowId) {
   try {
@@ -34,3 +34,4 @@ chrome.runtime.onMessage.addListener((msg, _sender, send) => {
       return true; // async
   }
 });
+
