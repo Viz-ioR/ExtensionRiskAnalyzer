@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Extension Risk Analyzer",
+  "version": "1.0.0",
+  "action": { "default_title": "Analyze extension risk" },
+  "side_panel": { "default_path": "app/index.html" },
+  "background": { "service_worker": "background/sw.js" },
+  "permissions": [],
+  "host_permissions": [
+    "https://clients2.google.com/*",
+    "https://clients2.googleusercontent.com/*",
+    "https://edgedl.me.gvt1.com/*",
+    "https://api.openai.com/*"
+  ]
+}

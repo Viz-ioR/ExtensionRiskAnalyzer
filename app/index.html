@@ -1,0 +1,199 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Extension Risk Scanner</title>
+  <style>
+    :root {
+      --low: #16a34a;
+      --med: #f59e0b;
+      --high: #dc2626;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --bg: #ffffff;
+      --card: #f8fafc;
+      --chip: #eef2f7;
+      --line: #e5e7eb;
+    }
+
+    body {
+      font: 14px system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, sans-serif;
+      color: var(--ink);
+      margin: 12px;
+    }
+
+    .row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    input[type=text],
+    input[type=password] {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+      margin-top: 10px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .title {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .ring {
+      --pct: 0%;
+      --ring: #16a34a;
+      width: 72px;
+      height: 72px;
+      border-radius: 9999px;
+      background: conic-gradient(var(--ring) var(--pct), #e5e7eb 0);
+      position: relative;
+    }
+
+    .ring::after {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      background: #fff;
+      border-radius: 9999px;
+    }
+
+    .ring .num {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      font-size: 18px;
+    }
+
+    .cat {
+      font-weight: 700;
+    }
+
+    .cat.low {
+      color: var(--low);
+    }
+
+    .cat.medium {
+      color: var(--med);
+    }
+
+    .cat.high {
+      color: var(--high);
+    }
+
+    h3 {
+      margin: 14px 0 8px;
+      font-size: 14px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 6px 0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 9999px;
+      font-size: 12px;
+      background: var(--chip);
+      border: 1px solid var(--line);
+      margin-right: 6px;
+    }
+
+    .sev {
+      font-weight: 700;
+    }
+
+    .sev.low {
+      color: var(--low);
+    }
+
+    .sev.medium {
+      color: var(--med);
+    }
+
+    .sev.high {
+      color: var(--high);
+    }
+
+    details {
+      margin-top: 8px;
+    }
+
+    pre {
+      background: #f6f8fa;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 10px;
+      overflow: auto;
+    }
+
+    a.link {
+      color: #2563eb;
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <h1>Extension Risk Scanner</h1>
+
+  <form id="q" class="row">
+    <input id="query" type="text" placeholder="Enter extension ID or name" autofocus />
+    <button type="submit">Analyze</button>
+  </form>
+
+  <div id="status"></div>
+  <div id="result"></div>
+
+  <script src="../vendor/jszip.min.js"></script>
+  <script src="analysis.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
