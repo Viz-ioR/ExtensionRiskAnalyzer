@@ -39,21 +39,3 @@
 - **AI summary** — compact JSON from the model parsed into simple bullets (falls back to plain text if not JSON)
 
 
-## Installation
-
-1. **Download & extract** the ZIP of this repository.
-2. Open Chrome and go to `chrome://extensions/`.
-3. Toggle **Developer mode** (top-right).
-4. Click **Load unpacked** and select the folder that contains `manifest.json` (e.g., `ExtensionRiskAnalyzer/`).
-5. (Optional) Pin the extension from the puzzle-piece icon.
-
-## Usage
-
-1. Click the **Extension Risk Analyzer** icon (opens in the side panel or a new tab).
-2. Enter a Chrome Web Store extension **ID or URL** and click **Analyze**.
-
-## Remove
-
-- **Uninstall:** `chrome://extensions/` → **Remove**.
-
-
